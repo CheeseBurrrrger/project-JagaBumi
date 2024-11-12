@@ -1,0 +1,233 @@
+/* Basic Reset */
+
+:root{
+    --light-color: #7b876c;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    zoom: 80%;
+}
+
+/* Navbar Styling */
+.navbar {
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    border-radius: 5px;
+    background-color: #3e8e41;
+    color: white;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-logo span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+
+}
+
+.navbar-menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #4CAF50;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #3e8e41;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.login-btn, .register-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.login-btn {
+    background-color: #a5d6a7;
+    color: #3e8e41;
+}
+
+.login-btn:hover{
+    background-color: #066209;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 0 0 8px var(--light-color);
+}
+
+.register-btn {
+    background-color: #f1f8e9;
+    color: #3e8e41;
+}
+
+.register-btn:hover{
+    background-color: #066209;
+    color: #f5f5f5;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 0 0 8px var(--light-color);
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.welcome-section h1 {
+    font-size: 2em;
+    color: #3e8e41;
+    margin-bottom: 20px;
+}
+
+.aboutus-section {
+    background-image: url("img/hd theysay.jpeg");
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 15px;
+}
+.aboutus-section h1{
+    color: #f5f5f5;
+    font-size: 22mm;
+    margin-bottom: 110px;
+    margin-left: 350px;
+    margin-right: 350px;
+    padding: 10px;
+}
+.aboutus-section p{
+    color: #f5f5f5;
+    font-size: 12mm;
+    margin: auto;
+    width: 1200px;
+    text-align: center;
+}
+.personalemission main{
+    margin: 10px;
+    padding: 5px;
+    width: 90%;
+    height: 90%;
+    background-color: #066209;
+}
+/* Carousel Styling */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.carousel-image {
+    display: none;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel-image.active {
+    display: block;
+}
+
+/* Contact & Feedback Section */
+.contact-feedback-section {
+    background-color: #4CAF50; /* Green color for the box */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact-feedback-section h2, .contact-feedback-section h3 {
+    margin: 10px 0;
+}
+
+.contact-feedback-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-feedback-section label, .contact-feedback-section input, .contact-feedback-section textarea {
+    width: 100%;
+    max-width: 400px;
+    margin: 5px 0;
+}
+
+.contact-feedback-section input, .contact-feedback-section textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact-feedback-section button {
+    background-color: white;
+    color: #4CAF50;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.contact-feedback-section button:hover {
+    background-color: #3e8e41;
+    color: white;
+}
