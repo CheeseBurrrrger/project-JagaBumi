@@ -43,8 +43,8 @@
       </form>
   
       <p class="mt-10 text-center text-sm/6 text-gray-500">
-        Not a member?
-        <a href="#" class="font-semibold text-lime-600 hover:text-lime-500">Sign up for free</a>
+        wanna login using google?
+        <a href="{{ route ('google-auth') }}" class="font-semibold text-lime-600 hover:text-lime-500">press here</a>
       </p>
     </div>
   </div>

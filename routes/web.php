@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,9 @@ Route::post('/nv/vehicle',[VehicleController::class,'addVehicle'])->name('addVeh
 Route::get('/ve/edit/{id}', [VehicleController::class,'loadEditVehicle'])->name('vehicle.edit');
 Route::post('/ve/update/{id}', [VehicleController::class,'updateVehicle'])->name('vehicle.update');
 Route::post('/ve/delete/{id}', [VehicleController::class,'deleteVehicle'])->name('vehicle.delete');
+Route::get('/calculate', function () {
+    return view('vehicle.calculatevehicleemission');
+});
+
+Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google-auth');
+Route::get('auth/google/call-back',[GoogleAuthController::class,'callbackGoogle']);

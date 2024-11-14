@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
-    protected $table = "Vehicles";
+    protected $table = "vehicles";
     protected $primaryKey= "id_vehicle";
     public $timestamps = false;
 
