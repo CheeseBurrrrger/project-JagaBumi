@@ -54,11 +54,32 @@
                         <a href="#">Carbon Offset</a>
                     </div>
                 </li>
+                @auth
+                    <li class="dropdown">
+                        <a href="#about" class="dropbtn">Hi welcome back, {{ auth()->user()->name }}</a>
+                        <div class="dropdown-content">
+                            <!-- Add styles or classes for proper alignment -->
+                            <a href="/vision" class="dashboard-link">
+                                My Dashboard 
+                                <img src="img/exhaust16.png" alt="exhaust picture" class="dashboard-icon">
+                            </a>
+                            <hr class="border-t border-gray-200">
+                            <form action="/logout" class="min-w-40" method="POST">
+                                @csrf
+                                <button class="flex items-center gap-2 px-4 py-2 font-sans text-sm text-white w-full font-semibold font hover:bg-green-700 text-left">
+                                    Logout
+                                </button>                            
+                            </form>
+                        </div>
+                    </li>
+                @else
+                    <div class="navbar-buttons">
+                        <a href="/" class="login-btn">Login</a>
+                        <a href="/regis" class="register-btn">Register</a>
+                    </div>
+                @endauth
+            
             </ul>
-            <div class="navbar-buttons">
-                <a href="/login"class="login-btn">Login</a>
-                <button class="register-btn">Register</button>
-            </div>
         </nav>
     </header>
 

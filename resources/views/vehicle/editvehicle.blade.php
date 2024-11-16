@@ -20,7 +20,7 @@
         <nav class="navbar">
             <div class="navbar-logo">
                 <img src="/img/jagabumi.png" alt="Jaga Bumi Logo">
-                <span onclick="window.location='/'" >JAGA BUMI</span>
+                <span onclick="window.location='/dashboard'" class="cursor-pointer" >JAGA BUMI</span>
             </div>
             <ul class="navbar-menu">
                 <li class="dropdown">
@@ -62,7 +62,7 @@
                 </li>
             </ul>
             <div class="navbar-buttons">
-                <a href="/login" class="login-btn">Login</a>
+                <a href="/" class="login-btn">Login</a>
                 <button class="register-btn">Register</button>
             </div>
         </nav>
