@@ -16,7 +16,7 @@
   </head>
   <body style="width: 90%;margin: auto;">
     <header>
-        <nav class="navbar">
+        <nav class="navbar shadow-xl">
             <div class="navbar-logo">
                 <img src="img/jagabumi.png" alt="Jaga Bumi Logo">
                 <span onclick="window.location='/dashboard'" class="cursor-pointer" >JAGA BUMI</span>
@@ -59,21 +59,40 @@
                         <a href="#">Carbon Offset</a>
                     </div>
                 </li>
+                @auth
+                    <li class="dropdown">
+                        <a href="#about" class="dropbtn">Hi welcome back, {{ auth()->user()->name }}</a>
+                        <div class="dropdown-content">
+                            <a href="profile" class="dashboard-link">
+                                My Profile 
+                                <img src="img/exhaust16.png" alt="exhaust picture" class="dashboard-icon">
+                            </a>
+                            <hr class="border-t border-gray-200">
+                            <form action="/logout" class="min-w-40" method="POST">
+                                @csrf
+                                <button class="flex items-center gap-2 px-4 py-2 font-sans text-sm text-white w-full font-semibold font hover:bg-green-700 text-left">
+                                    Logout
+                                </button>                            
+                            </form>
+                        </div>
+                    </li>
+                @else
+                    <div class="navbar-buttons">
+                        <a href="/" class="login-btn">Login</a>
+                        <a href="/regis" class="register-btn">Register</a>
+                    </div>
+                @endauth
             </ul>
-            <div class="navbar-buttons">
-                <a href="/login" class="login-btn">Login</a>
-                <button class="register-btn">Register</button>
-            </div>
         </nav>
         
     
     </header>
-    <div class="relative flex size-full min-h-screen flex-col bg-[#f8f9fc] group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="relative flex size-full min-h-screen flex-col rounded-xl bg-[#f3f5fa] group/design-root overflow-x-hidden mt-4 " style='font-family: Inter, "Noto Sans", sans-serif;'>
       <div class="layout-container flex h-full grow flex-col">
         <div class="px-40 flex flex-1 justify-center py-5">
           <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <div class="flex flex-wrap justify-between gap-3 p-4">
-              <div class="flex min-w-72 flex-col gap-3">
+            <div class="flex flex-wrap justify-between gap-3 p-4 ">
+              <div class="flex min-w-72 flex-col gap-3 ">
                 <p class="text-[#0e121b] tracking-light text-[32px] font-bold leading-tight">Vehicle Emission</p>
                 <p class="text-[#4e6797] text-sm font-normal leading-normal">View and manage your vehicle emission</p>
               </div>
@@ -127,24 +146,24 @@
                                 <td class="table-a589e3d2-3512-4ac2-81b6-837810765f5f-column-600 h-[72px] px-4 py-2 w-[400px] text-[#4e6797] text-sm font-normal leading-normal">
                                     {{$item->vehicle_year}}</td>
                                 <td class="table-a589e3d2-3512-4ac2-81b6-837810765f5f-column-720 h-[72px] px-4 py-2 w-60 text-[#4e6797] text-sm font-bold leading-normal tracking-[0.015em]">
-                                Check Your Emission</td>
+                                  <a href="{{ route('calculate') }}" class="cursor-pointer  text-green-600 dark:text-green-500 hover:underline">Check Your Emission</a></td>
                                 <td class="table-a589e3d2-3512-4ac2-81b6-837810765f5f-column-720 h-[72px] px-4 py-2 w-60 text-[#4e6797] text-sm font-bold leading-normal tracking-[0.015em]">
-                                    <a href="{{ route('vehicle.edit',$item->id_vehicle ) }}" class="cursor-pointer hover:text-[#7b92bc]">Edit</a>
+                                    <a href="{{ route('vehicle.edit',$item->id_vehicle ) }}" class="cursor-pointer  text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                     @csrf
                                 </td>
                                 <td class="table-a589e3d2-3512-4ac2-81b6-837810765f5f-column-720 h-[72px] px-4 py-2 w-60 text-[#4e6797] text-sm font-bold leading-normal tracking-[0.015em]">
                                     <form action="{{ route ('vehicle.delete',$item->id_vehicle) }}" method="POST">
                                       @csrf
-                                      <button class="cursor-pointer hover:text-[#7b92bc]">Delete</button>
+                                      <button class="cursor-pointer text-red-600 dark:text-red-500 hover:underline">Delete</button>
                                     </form>
                                 </td>
                             </tr>    
                         @endforeach
                         {{-- <a href="/ve" class="cursor-pointer hover:text-[#7b92bc]">Delete</a> --}}
                     @else
-                        <td>
-                            no User Found!
-                        </td>
+                    <tr class="border-t border-t-[#d0d7e7]">
+                      <td class="table-a589e3d2-3512-4ac2-81b6-837810765f5f-column-120 h-[72px] px-4 py-2 w-[400px] text-[#4e6797] text-sm font-normal leading-normal">No vehicles found. Please add some vehicle</td>
+                    </tr>
                     @endif
                   </tbody>
                 </table>

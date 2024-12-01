@@ -14,4 +14,5 @@ class Vehicle extends Model
     {
         return 'id_vehicle';
     }
+    
 }

@@ -24,7 +24,6 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
-    
         return back()->with('loginError', 'Login failed!');
     }
     
@@ -36,7 +35,8 @@ class AuthController extends Controller
         $validatedData = $request->validate([
             'email' => 'required|email:dns|unique:users,email',
             'name' => 'required',
-            'password' => 'required'
+            'password' => 'required', 
+            'phone' => 'required',
         ]);
         User::create($validatedData);
 
@@ -53,5 +53,52 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    public function showProfile()
+    {
+        $user = Auth::user();
+
+        // Check if user data exists before passing it to the view
+        if (!$user) {
+            abort(403, 'Unauthorized access');
+        }
+
+        // Pass the user data to the view
+        return view('LogRegist.profilepage', compact('user'));
+    }
+
+    public function showEdit($id){
+        $item = User::find($id);
+        return view('LogRegist.editpage',compact("item"));
+    }
+    public function postEdit(Request $request, $id){
+        $user= User::find($id);
+        $request->validate([
+            'email' => 'required|email:dns',
+            'name' => 'required',
+            'password' => 'required', 
+            'phone' => 'required',
+        ]);
+        $user->name = $request->name;
+        $user->password = $request->password;
+        $user->email = $request->email;
+        if(!$user->phone){
+            $user->phone = $request->phone;
+            $user->save();
+        }
+        else{
+            $user->phone = $request->phone;
+            $user->update();
+        }
+        return view('LogRegist.profilepage',compact('user'));
+
+    }
+
+    public function deleteUser($id){
+        
+        $user = User::find($id);  
+        $user->delete();
+        return redirect('/vision');
     }
 }

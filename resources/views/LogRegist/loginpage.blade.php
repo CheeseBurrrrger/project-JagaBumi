@@ -13,10 +13,13 @@
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       @if (session()->has('loginError'))
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
         {{ session('loginError') }}
         <button type="close" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>        
+      </div>         --}}
+      <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+        <span class="font-medium">{{ session('loginError') }}</span> Cek ulang kredensial anda
+      </div>
       @endif
       <img class="mx-auto h-20 w-auto" src="img/jagabumi.png" alt="Jaga Bumi">
       <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Login to your account</h2>

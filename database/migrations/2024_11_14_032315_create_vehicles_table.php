@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->increments('id_vehicle');
-            $table->string('manufacturer',length: 20); 
-            $table->string('vehicle_type',length: 20);
-            $table->string('vehicle_category',length: 20);            
+            $table->string('manufacturer', 20); 
+            $table->string('vehicle_type', 20);
+            $table->string('vehicle_category', 20);            
             $table->integer('engine_capacity');
             $table->integer('vehicle_year');
         });
@@ -25,10 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::create('vehicles',function (Blueprint $table){
-            $table->dropColumn('id_vehicle');
-            Schema::dropIfExists('cehicles');
-        });
+      
+            // $table->dropColumn('id_vehicle');
+            Schema::dropIfExists('vehicles');
+      
         
     }
 };

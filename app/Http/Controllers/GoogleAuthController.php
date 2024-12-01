@@ -38,7 +38,7 @@ class GoogleAuthController extends Controller
                 return redirect()->intended('/dashboard');
             }
         } catch (\Throwable $th) {
-            dd('something went wrong shit!'.$th->getMessage());
+            dd('something went wrong!'.$th->getMessage());
         }
     }
 }

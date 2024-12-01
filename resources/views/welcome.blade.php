@@ -11,7 +11,7 @@
 <body style="width: 90%; margin: auto;">
     <!-- Navigation Bar -->
     <header>
-        <nav class="navbar">
+        <nav class="navbar shadow-xl">
             <div class="navbar-logo">
                 <img src="img/jagabumi.png" alt="Jaga Bumi Logo">
                 <span>JAGA BUMI</span>
@@ -58,9 +58,8 @@
                     <li class="dropdown">
                         <a href="#about" class="dropbtn">Hi welcome back, {{ auth()->user()->name }}</a>
                         <div class="dropdown-content">
-                            <!-- Add styles or classes for proper alignment -->
-                            <a href="/vision" class="dashboard-link">
-                                My Dashboard 
+                            <a href="profile" class="dashboard-link">
+                                My Profile 
                                 <img src="img/exhaust16.png" alt="exhaust picture" class="dashboard-icon">
                             </a>
                             <hr class="border-t border-gray-200">
